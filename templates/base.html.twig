@@ -43,7 +43,7 @@
 		<meta name="twitter:image" content="{{ block('image') }}">
 		<meta name="twitter:dnt" content="on">
 	</head>
-	<body>
+	<body data-controller="@symfony/ux-swup/swup" data-containers="#swup #nav">
 		<div class="relative bg-white">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6">
 				<div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
@@ -61,11 +61,11 @@
 							</svg>
 						</button>
 					</div>
-					<nav class="hidden md:flex space-x-10">
-						<a href="{{ path('home') }}" class="text-base font-medium text-gray-900 hover:text-gray-900">
+					<nav id="nav" class="hidden md:flex space-x-10">
+						<a href="{{ path('home') }}" class="text-base font-medium {{ app.request.get('_route') == 'home' ? 'text-gray-900' : 'text-gray-500' }} hover:text-gray-900">
 							Home
 						</a>
-						<a href="#" class="text-base font-medium text-gray-500 hover:text-gray-900">
+						<a href="{{ path('quizz_index') }}" class="text-base font-medium  {{ app.request.get('_route') == 'quizz_index' ? 'text-gray-900' : 'text-gray-500' }} hover:text-gray-900">
 							Quizz
 						</a>
 					</nav>
@@ -107,7 +107,7 @@
 									</span>
 								</a>
 
-								<a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+								<a href="{{ path('quizz_index') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                                     <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
                                     </svg>
@@ -134,7 +134,7 @@
 				</div>
 			</div>
 		</div>
-		<main>
+		<main id="swup" class="container max-w-7xl">
 			{% block body %}{% endblock %}
 		</main>
 		{% block javascripts %}
