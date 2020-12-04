@@ -18,5 +18,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 nav.classList.replace('ease-in', 'ease-out');
             }
 		});
-	});
+    });
+
+    let nav_item = document.getElementsByClassName('main-nav__item');
+
+    Array.from(nav_item).forEach(item => {
+        item.addEventListener('click', () => {
+            eventFire(document.getElementById('nav-close'), 'click');
+        });
+    });
+
+    function eventFire(el, etype){
+        if (el.fireEvent) {
+            el.fireEvent('on' + etype);
+        } else {
+            var evObj = document.createEvent('Events');
+            evObj.initEvent(etype, true, false);
+            el.dispatchEvent(evObj);
+        }
+    }
 });
