@@ -19,6 +19,15 @@ class QuizzRepository extends ServiceEntityRepository
         parent::__construct($registry, Quizz::class);
     }
 
+    public function findLatest()
+    {
+        return $this->createQueryBuilder('q')
+            ->setMaxResults(4)
+            ->orderBy('q.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Quizz[] Returns an array of Quizz objects
     //  */

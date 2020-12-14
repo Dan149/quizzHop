@@ -28,6 +28,11 @@ services:
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
+    App\EntityListener\QuizzEntityListener:
+      tags:
+        - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Quizz'}
+        - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Quizz'}
+
     # please note that last definitions always *replace* previous ones
     App\DataCollector\SeoCollector:
       tags:

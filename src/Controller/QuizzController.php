@@ -49,7 +49,7 @@ class QuizzController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="quizz_show", methods={"GET"})
+     * @Route("/{slug}", name="quizz_show", methods={"GET"})
      */
     public function show(Quizz $quizz): Response
     {
@@ -59,7 +59,7 @@ class QuizzController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="quizz_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="quizz_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Quizz $quizz): Response
     {
@@ -79,7 +79,7 @@ class QuizzController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="quizz_delete", methods={"DELETE"})
+     * @Route("/{slug}", name="quizz_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Quizz $quizz): Response
     {

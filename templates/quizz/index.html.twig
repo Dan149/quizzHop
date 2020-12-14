@@ -23,8 +23,8 @@
                 <td>{{ quizz.description }}</td>
                 <td>{{ quizz.players }}</td>
                 <td>
-                    <a href="{{ path('quizz_show', {'id': quizz.id}) }}">show</a>
-                    <a href="{{ path('quizz_edit', {'id': quizz.id}) }}">edit</a>
+                    <a href="{{ path('quizz_show', {'slug': quizz.slug}) }}">show</a>
+                    <a href="{{ path('quizz_edit', {'slug': quizz.slug}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
