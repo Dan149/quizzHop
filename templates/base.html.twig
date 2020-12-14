@@ -3,15 +3,17 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{% block title %}{% endblock %} - QuizzHop</title>
+		<title>
+			{% block title %}{% endblock %}
+			- QuizzHop</title>
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('app') }}
 		{% endblock %}
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="me" href="mailto:romain@rherault.fr">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="me" href="mailto:romain@rherault.fr">
 		<link type="text/plain" rel="author" href="{{ app.request.uri }}/humans.txt"/>
 		<link rel="dns-prefetch" href="{{ app.request.uri }}">
 		<link rel="preconnect" href="{{ app.request.uri }}">
@@ -99,18 +101,18 @@
 						<div class="mt-6">
 							<nav class="grid gap-y-8 main-nav">
 								<a href="{{ path('home') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 main-nav__item">
-                                    <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                    </svg>
+									<svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+									</svg>
 									<span class="ml-3 text-base font-medium text-gray-900">
 										Home
 									</span>
 								</a>
 
 								<a href="{{ path('quizz_index') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50 main-nav__item">
-                                    <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
-                                    </svg>
+									<svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" stroke="currentColor">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"/>
+									</svg>
 									<span class="ml-3 text-base font-medium text-gray-900">
 										Quizz
 									</span>
@@ -134,11 +136,90 @@
 				</div>
 			</div>
 		</div>
-		<main id="swup" class="container max-w-7xl">
-			{% block body %}{% endblock %}
-		</main>
-		{% block javascripts %}
-			{{ encore_entry_script_tags('app') }}
-		{% endblock %}
-	</body>
-</html>
+		<main id="swup">
+            {% block body %}{% endblock %}
+        </main>
+			<footer class="relative bg-gray-300 pt-8 pb-6">
+				<div class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20" style="height: 80px; transform: translateZ(0px);">
+					<svg class="absolute bottom-0 overflow-hidden" xmlns="http://www.w3.org/2000/svg" preserveaspectratio="none" version="1.1" viewbox="0 0 2560 100" x="0" y="0">
+						<polygon class="text-gray-300 fill-current" points="2560 0 2560 100 0 100"></polygon>
+					</svg>
+				</div>
+				<div class="container mx-auto px-4">
+					<div class="flex flex-wrap">
+						<div class="w-full lg:w-6/12 px-4">
+							<h4 class="text-3xl font-semibold">Let's keep in touch!</h4>
+							<h5 class="text-lg mt-0 mb-2 text-gray-700">
+								Find us on any of these platforms, we respond 1-2 business days.
+							</h5>
+							<div class="mt-6">
+								<button class="bg-white text-blue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
+									<i class="flex fab fa-twitter"></i>
+								</button>
+								<button class="bg-white text-blue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
+									<i class="flex fab fa-facebook-square"></i>
+								</button>
+								<button class="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
+									<i class="flex fab fa-dribbble"></i>
+								</button>
+								<button class="bg-white text-gray-900 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 p-3" type="button">
+									<i class="flex fab fa-github"></i>
+								</button>
+							</div>
+						</div>
+						<div class="w-full lg:w-6/12 px-4">
+							<div class="flex flex-wrap items-top mb-6">
+								<div class="w-full lg:w-4/12 px-4 ml-auto">
+									<span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Useful Links</span>
+									<ul class="list-unstyled">
+										<li>
+											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://www.creative-tim.com/presentation">About Us</a>
+										</li>
+										<li>
+											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://blog.creative-tim.com">Blog</a>
+										</li>
+										<li>
+											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://www.github.com/creativetimofficial">Github</a>
+										</li>
+										<li>
+											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://www.creative-tim.com/bootstrap-themes/free">Free Products</a>
+										</li>
+									</ul>
+								</div>
+								<div class="w-full lg:w-4/12 px-4">
+									<span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Other Resources</span>
+									<ul class="list-unstyled">
+										<li>
+											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md">MIT License</a>
+										</li>
+										<li>
+											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/terms">Terms &amp; Conditions</a>
+										</li>
+										<li>
+											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/privacy">Privacy Policy</a>
+										</li>
+										<li>
+											<a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm" href="https://creative-tim.com/contact-us">Contact Us</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<hr class="my-6 border-gray-400"/>
+					<div class="flex flex-wrap items-center md:justify-between justify-center">
+						<div class="w-full md:w-4/12 px-4 mx-auto text-center">
+							<div class="text-sm text-gray-600 font-semibold py-1">
+                                Made with ❤️ by
+								<a href="https://rherault.fr" class="text-gray-600 hover:text-gray-900">rherault</a>.
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+			{% block javascripts %}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %}
+		</body>
+	</html>

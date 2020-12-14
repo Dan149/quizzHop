@@ -11,7 +11,12 @@ $font-size-base: 16px;
 /// ============================
 html, body {
     font-family: $font-secondary;
-    color: #4A4A4A;
+    color: #2e3440;
+
+    // @media (prefers-color-scheme: dark) {
+        // color: #ffffff;
+    // }
+
     font-size: $font-size-base;
 }
 

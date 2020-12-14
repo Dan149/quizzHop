@@ -22,6 +22,7 @@ class QuizzType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Quizz::class,
+            'translation_domain' => 'form.quizz'
         ]);
     }
 }
