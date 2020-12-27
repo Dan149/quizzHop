@@ -61,6 +61,11 @@ Encore
     // enables PostCSS support
     .enablePostCssLoader()
 
+    // Images
+    .copyFiles({
+        from: './assets/img',
+    })
+
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
