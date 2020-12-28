@@ -1,0 +1,35 @@
+$colors: (
+  'info': #4299e1,
+  'danger': #e53e3e,
+  'secondary': #e2e8f0
+);
+
+%btn {
+  display: inline-block;
+  font-weight: bold;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: .25rem;
+  transition: .4s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn {
+  @extend %btn;
+  @include button-outlined-variant(#5850EC);
+}
+
+.btn-outlined {
+  @extend %btn;
+  @include button-variant-invert(#5850EC);
+}
+
+@each $color, $value in $colors {
+  .btn-#{$color} {
+    @extend %btn;
+    @include button-variant($value);
+  }
+}

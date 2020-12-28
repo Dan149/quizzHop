@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;700&family=Rubik:wght@300;400;500;700&display=swap');
+
+$font-primary: "Rubik", sans-serif;
+$font-secondary: "Karla", sans-serif;
+$font-size-base: 16px;
+
+.font-primary { font-family: $font-primary !important; }
+.font-secondary { font-family: $font-secondary !important; }
+
+/// Basic fonts declaration
+/// ============================
+html, body {
+    font-family: $font-secondary;
+    color: #2e3440;
+
+    // @media (prefers-color-scheme: dark) {
+        // color: #ffffff;
+    // }
+
+    font-size: $font-size-base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-primary;
+}
+
+/// Font sizes
+/// ============================
+$h1-font-size: $font-size-base * 2.5 !default;
+$h2-font-size: $font-size-base * 2 !default;
+$h3-font-size: $font-size-base * 1.75 !default;
+$h4-font-size: $font-size-base * 1.5 !default;
+$h5-font-size: $font-size-base * 1.25 !default;
+$h6-font-size: $font-size-base !default;
+
+h1, .h1 { font-size: $h1-font-size; }
+h2, .h2 { font-size: $h2-font-size; }
+h3, .h3 { font-size: $h3-font-size; }
+h4, .h4 { font-size: $h4-font-size; }
+h5, .h5 { font-size: $h5-font-size; }
+h6, .h6 { font-size: $h6-font-size; }
