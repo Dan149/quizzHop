@@ -1,7 +1,6 @@
 {
     "devDependencies": {
         "@symfony/stimulus-bridge": "^1.1.0",
-        "@symfony/ux-swup": "file:vendor/symfony/ux-swup/Resources/assets",
         "@symfony/webpack-encore": "^0.32.0",
         "core-js": "^3.0.0",
         "node-sass": "^4.14.1",
@@ -10,7 +9,8 @@
         "sass-loader": "^9.0.1",
         "stimulus": "^2.0.0",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat",
-        "webpack-notifier": "^1.6.0"
+        "webpack-notifier": "^1.6.0",
+        "@symfony/ux-swup": "file:vendor/symfony/ux-swup/Resources/assets"
     },
     "license": "UNLICENSED",
     "private": true,
