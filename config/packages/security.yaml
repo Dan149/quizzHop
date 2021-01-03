@@ -23,6 +23,7 @@ security:
                 authenticators:
                     - App\Security\LoginAuthenticator
                     - App\Security\GithubAuthenticator
+                    - App\Security\GoogleAuthenticator
             logout:
                 path: logout
                 # where to redirect after logout

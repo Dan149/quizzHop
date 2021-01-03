@@ -9,6 +9,7 @@ use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use League\OAuth2\Client\Provider\GithubResourceOwner;
+use League\OAuth2\Client\Provider\GoogleUser;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 
 /**
@@ -53,6 +54,30 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $user = (new User())
             ->setGithubId($owner->getId())
             ->setUsername($owner->getNickname())
+        ;
+
+        $em = $this->getEntityManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $user;
+    }
+
+    public function findOrCreateFromGoogleOauth(GoogleUser $owner)
+    {
+        $user = $this->createQueryBuilder('u')
+            ->where('u.googleId = :googleId')
+            ->setParameters(['googleId' => $owner->getId()])
+            ->getQuery()
+            ->getOneOrNullResult();
+
+        if ($user) {
+            return $user;
+        }
+
+        $user = (new User())
+            ->setGoogleId($owner->getId())
+            ->setUsername($owner->getEmail())
         ;
 
         $em = $this->getEntityManager();

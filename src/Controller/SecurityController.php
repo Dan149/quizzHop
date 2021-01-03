@@ -28,12 +28,16 @@ class SecurityController extends AbstractController
     }
 
     /**
-     * @Route("/connect/github", name="auth_connect")
+     * @Route("/connect/{client}", name="auth_connect")
      */
-    public function connect(ClientRegistry $clientRegistry)
+    public function connect(string $client, ClientRegistry $clientRegistry)
     {
-        $client = $clientRegistry->getClient('github');
-        return $client->redirect(['read:user']);
+        $client = $clientRegistry->getClient($client);
+        if ($client === 'github') {
+            return $client->redirect(['read:user']);
+        } else {
+            return $client->redirect();
+        }
     }
 
     /**
