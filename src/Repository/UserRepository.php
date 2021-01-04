@@ -3,11 +3,14 @@
 namespace App\Repository;
 
 use App\Entity\User;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use League\OAuth2\Client\Provider\ResourceOwnerInterface;
+use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use League\OAuth2\Client\Provider\GithubResourceOwner;
+use League\OAuth2\Client\Provider\GoogleUser;
+use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -36,32 +39,51 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
-    // /**
-    //  * @return User[] Returns an array of User objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function findOrCreateFromGithubOauth(GithubResourceOwner $owner)
     {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('u.id', 'ASC')
-            ->setMaxResults(10)
+        $user = $this->createQueryBuilder('u')
+            ->where('u.githubId = :githubId')
+            ->setParameters(['githubId' => $owner->getId()])
             ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+            ->getOneOrNullResult();
 
-    /*
-    public function findOneBySomeField($value): ?User
-    {
-        return $this->createQueryBuilder('u')
-            ->andWhere('u.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
+        if ($user) {
+            return $user;
+        }
+
+        $user = (new User())
+            ->setGithubId($owner->getId())
+            ->setUsername($owner->getNickname())
         ;
+
+        $em = $this->getEntityManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $user;
     }
-    */
+
+    public function findOrCreateFromGoogleOauth(GoogleUser $owner)
+    {
+        $user = $this->createQueryBuilder('u')
+            ->where('u.googleId = :googleId')
+            ->setParameters(['googleId' => $owner->getId()])
+            ->getQuery()
+            ->getOneOrNullResult();
+
+        if ($user) {
+            return $user;
+        }
+
+        $user = (new User())
+            ->setGoogleId($owner->getId())
+            ->setUsername($owner->getEmail())
+        ;
+
+        $em = $this->getEntityManager();
+        $em->persist($user);
+        $em->flush();
+
+        return $user;
+    }
 }
