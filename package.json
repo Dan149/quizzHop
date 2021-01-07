@@ -9,6 +9,9 @@
         "sass-loader": "^9.0.1",
         "stimulus": "^2.0.0",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat",
+        "vue": "^2.5",
+        "vue-loader": "^15",
+        "vue-template-compiler": "^2.6.12",
         "webpack-notifier": "^1.6.0",
         "@symfony/ux-swup": "file:vendor/symfony/ux-swup/Resources/assets"
     },

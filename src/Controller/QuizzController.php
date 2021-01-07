@@ -21,7 +21,7 @@ class QuizzController extends AbstractController
     public function index(QuizzRepository $quizzRepository): Response
     {
         return $this->render('quizz/index.html.twig', [
-            'quizzs' => $quizzRepository->findAll(),
+            'quizzes' => $quizzRepository->findAll(),
         ]);
     }
 

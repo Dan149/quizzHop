@@ -6,6 +6,7 @@ use App\Entity\Quizz;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class QuizzType extends AbstractType
 {
@@ -15,6 +16,10 @@ class QuizzType extends AbstractType
             ->add('name')
             ->add('description')
             ->add('players')
+            ->add('questions')
+            ->add('isPrivate')
+            ->add('category')
+            ->add('imageFile', VichImageType::class)
         ;
     }
 
