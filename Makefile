@@ -117,7 +117,7 @@ start: install serve ## Install project dependencies and launch symfony web serv
 .PHONY: serve unserve security
 
 serve: ## Run symfony web server in the background
-	@$(SYMFONY_BIN) serve --daemon --no-tls
+	@$(SYMFONY_BIN) serve -d --allow-http
 
 unserve: ## Stop symfony web server
 	@$(SYMFONY_BIN) server:stop
