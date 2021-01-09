@@ -39,11 +39,20 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
-    public function findOrCreateFromGithubOauth(GithubResourceOwner $owner)
+    public function findOrCreateFromOauth(string $service, ?string $serviceId, ?string $username): ?User
     {
+        if (null === $serviceId || null === $username) {
+            return null;
+        }
+
         $user = $this->createQueryBuilder('u')
-            ->where('u.githubId = :githubId')
-            ->setParameters(['githubId' => $owner->getId()])
+            ->where('u.username = :username')
+            ->orWhere("u.{$service}Id = :serviceId")
+            ->setMaxResults(1)
+            ->setParameters([
+                'username' => $username,
+                'serviceId' => $serviceId
+            ])
             ->getQuery()
             ->getOneOrNullResult();
 
@@ -51,33 +60,11 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             return $user;
         }
 
+        $service = ucfirst($service);
+        $function = "set{$service}Id";
         $user = (new User())
-            ->setGithubId($owner->getId())
-            ->setUsername($owner->getNickname())
-        ;
-
-        $em = $this->getEntityManager();
-        $em->persist($user);
-        $em->flush();
-
-        return $user;
-    }
-
-    public function findOrCreateFromGoogleOauth(GoogleUser $owner)
-    {
-        $user = $this->createQueryBuilder('u')
-            ->where('u.googleId = :googleId')
-            ->setParameters(['googleId' => $owner->getId()])
-            ->getQuery()
-            ->getOneOrNullResult();
-
-        if ($user) {
-            return $user;
-        }
-
-        $user = (new User())
-            ->setGoogleId($owner->getId())
-            ->setUsername($owner->getEmail())
+            ->$function($serviceId)
+            ->setUsername($username)
         ;
 
         $em = $this->getEntityManager();
