@@ -2,16 +2,16 @@ App\Entity\User:
   user_user:
     username: 'user'
     # UserPassword1234 hash
-    password: '\\$2y\\$13\\$3Fb.xkpxCtV3.0itJiVc8uVNAKKuiLyEIz1JX.piwYsACu.Ymy6FS'
+    password: "\\$2y\\$13\\$3Fb.xkpxCtV3.0itJiVc8uVNAKKuiLyEIz1JX.piwYsACu.Ymy6FS"
     roles: ['ROLE_USER']
 
   user_admin:
     username: 'user_admin'
     # UserPassword1234 hash
-    password: '\\$2y\\$13\\$3Fb.xkpxCtV3.0itJiVc8uVNAKKuiLyEIz1JX.piwYsACu.Ymy6FS'
+    password: "\\$2y\\$13\\$3Fb.xkpxCtV3.0itJiVc8uVNAKKuiLyEIz1JX.piwYsACu.Ymy6FS"
     roles: ['ROLE_ADMIN']
 
   user{1..10}:
     username: <userName()>
     # UserPassword1234 hash
-    password: '\\$2y\\$13\\$3Fb.xkpxCtV3.0itJiVc8uVNAKKuiLyEIz1JX.piwYsACu.Ymy6FS'
+    password: "\\$2y\\$13\\$3Fb.xkpxCtV3.0itJiVc8uVNAKKuiLyEIz1JX.piwYsACu.Ymy6FS"
