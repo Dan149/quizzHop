@@ -51,7 +51,7 @@ class PagesControllerTest extends WebTestCase
         $this->assertSelectorTextSame('#sign a:last-of-type', 'Logout');
     }
 
-    public function userProvider()
+    public function userProvider(): iterable
     {
         $users = $this->loadFixtureFiles([
             dirname(__DIR__) . '/fixtures/Users.yaml'
