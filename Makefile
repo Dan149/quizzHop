@@ -1,6 +1,11 @@
 .DEFAULT_GOAL := help
 
 SYMFONY_BIN = symfony
+
+ifeq (, $(shell which symfony))
+SYMFONY_BIN := php bin/console
+endif
+
 YARN = yarn
 
 COMPOSER = $(SYMFONY_BIN) composer
