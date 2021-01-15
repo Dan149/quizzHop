@@ -10,8 +10,6 @@ class UserRepositoryTest extends KernelTestCase
 
     public function testCountUsers()
     {
-        self::bootKernel();
-
         $users = $this->loadFixtureFiles([
             dirname(__DIR__) . '/fixtures/Users.yaml'
         ]);
