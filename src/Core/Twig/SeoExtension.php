@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Twig;
+namespace App\Core\Twig;
 
 use Symfony\Component\String\AbstractString;
 use function Symfony\Component\String\u;

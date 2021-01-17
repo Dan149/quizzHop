@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository;
+namespace App\Domain\Auth;
 
-use App\Entity\User;
+use App\Domain\Auth\User;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\User\UserInterface;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;

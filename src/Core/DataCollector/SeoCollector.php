@@ -1,8 +1,8 @@
 <?php
 
-namespace App\DataCollector;
+namespace App\Core\DataCollector;
 
-use App\Twig\SeoExtension;
+use App\Core\Twig\SeoExtension;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
