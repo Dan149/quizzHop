@@ -32,7 +32,7 @@ services:
         - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Domain\Quizz\Entity\Quizz'}
 
     # please note that last definitions always *replace* previous ones
-    App\Core\DataCollector\SeoCollector:
+    App\Core\Twig\DataCollector\SeoCollector:
       tags:
         - name: data_collector
           template: "toolbar/seo_collector.html.twig"

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core\DataCollector;
+namespace App\Core\Twig\DataCollector;
 
 use App\Core\Twig\SeoExtension;
 use Symfony\Component\DomCrawler\Crawler;
