@@ -1,6 +1,6 @@
 <?php
 
-use App\Repository\UserRepository;
+use App\Domain\Auth\UserRepository;
 use Liip\TestFixturesBundle\Test\FixturesTrait;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
