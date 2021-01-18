@@ -2,9 +2,9 @@
 
 namespace App\Http\Controller;
 
-use App\Entity\Quizz;
+use App\Domain\Quizz\Entity\Quizz;
 use App\Http\Form\QuizzType;
-use App\Repository\QuizzRepository;
+use App\Domain\Quizz\Repository\QuizzRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
