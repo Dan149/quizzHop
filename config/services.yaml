@@ -11,32 +11,29 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: false
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/'
-        exclude:
-            - '../src/DependencyInjection/'
-            - '../src/Entity/'
-            - '../src/Kernel.php'
-            - '../src/Tests/'
+        exclude: '../src/{DependencyInjection,Entity,Infrastructure/Migrations,Tests,Kernel.php}'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
-    App\Controller\:
-        resource: '../src/Controller/'
+    App\Http\Controller\:
+        resource: '../src/Http/Controller/'
         tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
-    App\EntityListener\QuizzEntityListener:
+    App\Domain\Quizz\EntityListener\QuizzEntityListener:
       tags:
-        - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Entity\Quizz'}
-        - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Entity\Quizz'}
+        - { name: 'doctrine.orm.entity_listener', event: 'prePersist', entity: 'App\Domain\Quizz\Entity\Quizz'}
+        - { name: 'doctrine.orm.entity_listener', event: 'preUpdate', entity: 'App\Domain\Quizz\Entity\Quizz'}
 
     # please note that last definitions always *replace* previous ones
-    App\DataCollector\SeoCollector:
+    App\Core\DataCollector\SeoCollector:
       tags:
         - name: data_collector
           template: "toolbar/seo_collector.html.twig"
-          id: App\DataCollector\SeoCollector
+          id: App\Core\DataCollector\SeoCollector

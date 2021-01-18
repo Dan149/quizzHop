@@ -1,8 +1,8 @@
 <?php
 
-namespace App\EntityListener;
+namespace App\Domain\Quizz\EntityListener;
 
-use App\Entity\Quizz;
+use App\Domain\Quizz\Entity\Quizz;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Symfony\Component\String\Slugger\SluggerInterface;
 

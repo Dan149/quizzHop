@@ -1,7 +1,7 @@
 <?php
 namespace App\Security;
 
-use App\Entity\User;
+use App\Domain\Auth\User;
 use Symfony\Component\HttpFoundation\Request;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Security\Http\Event\LogoutEvent;

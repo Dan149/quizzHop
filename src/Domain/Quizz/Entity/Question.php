@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Entity;
+namespace App\Domain\Quizz\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\QuestionRepository;
+use App\Domain\Quizz\Repository\QuestionRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

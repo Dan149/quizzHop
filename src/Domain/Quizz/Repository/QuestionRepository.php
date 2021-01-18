@@ -1,35 +1,26 @@
 <?php
 
-namespace App\Repository;
+namespace App\Domain\Quizz\Repository;
 
-use App\Entity\Quizz;
+use App\Domain\Quizz\Entity\Question;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Quizz|null find($id, $lockMode = null, $lockVersion = null)
- * @method Quizz|null findOneBy(array $criteria, array $orderBy = null)
- * @method Quizz[]    findAll()
- * @method Quizz[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Question|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Question|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Question[]    findAll()
+ * @method Question[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class QuizzRepository extends ServiceEntityRepository
+class QuestionRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Quizz::class);
-    }
-
-    public function findLatest()
-    {
-        return $this->createQueryBuilder('q')
-            ->setMaxResults(4)
-            ->orderBy('q.id', 'DESC')
-            ->getQuery()
-            ->getResult();
+        parent::__construct($registry, Question::class);
     }
 
     // /**
-    //  * @return Quizz[] Returns an array of Quizz objects
+    //  * @return Question[] Returns an array of Question objects
     //  */
     /*
     public function findByExampleField($value)
@@ -46,7 +37,7 @@ class QuizzRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Quizz
+    public function findOneBySomeField($value): ?Question
     {
         return $this->createQueryBuilder('q')
             ->andWhere('q.exampleField = :val')

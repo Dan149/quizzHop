@@ -8,7 +8,7 @@ security:
         # used to reload user from session & other features (e.g. switch_user)
         app_user_provider:
             entity:
-                class: App\Entity\User
+                class: App\Domain\Auth\User
                 property: username
     firewalls:
         dev:
@@ -19,11 +19,11 @@ security:
             lazy: true
             provider: app_user_provider
             guard:
-                entry_point: App\Security\LoginAuthenticator
+                entry_point: App\Domain\Auth\Authenticator
                 authenticators:
-                    - App\Security\LoginAuthenticator
-                    - App\Security\GithubAuthenticator
-                    - App\Security\GoogleAuthenticator
+                    - App\Domain\Auth\Authenticator
+                    - App\Infrastructure\Social\Authenticator\GithubAuthenticator
+                    - App\Infrastructure\Social\Authenticator\GoogleAuthenticator
             logout:
                 path: logout
                 # where to redirect after logout

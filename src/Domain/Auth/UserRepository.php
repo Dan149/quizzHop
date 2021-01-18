@@ -5,11 +5,8 @@ namespace App\Domain\Auth;
 use App\Domain\Auth\User;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\User\UserInterface;
-use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use League\OAuth2\Client\Provider\GithubResourceOwner;
-use League\OAuth2\Client\Provider\GoogleUser;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 
 /**
