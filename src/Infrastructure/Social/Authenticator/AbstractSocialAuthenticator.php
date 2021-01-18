@@ -1,9 +1,9 @@
 <?php
-namespace App\Security;
+namespace App\Infrastructure\Social\Authenticator;
 
-use App\Entity\User;
-use App\Repository\UserRepository;
-use App\Security\AuthService;
+use App\Domain\Auth\User;
+use App\Domain\Auth\UserRepository;
+use App\Domain\Auth\AuthService;
 use Doctrine\ORM\EntityManagerInterface;
 use League\OAuth2\Client\Token\AccessToken;
 use Symfony\Component\HttpFoundation\Request;

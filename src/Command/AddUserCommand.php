@@ -11,8 +11,8 @@
 
 namespace App\Command;
 
-use App\Entity\User;
-use App\Repository\UserRepository;
+use App\Domain\Auth\User;
+use App\Domain\Auth\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Exception\RuntimeException;

@@ -2,22 +2,22 @@
 
 namespace App\Http\Controller;
 
-use App\Entity\User;
-use App\Form\RegistrationFormType;
-use App\Security\LoginAuthenticator;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Domain\Auth\Authenticator;
+use App\Domain\Auth\User;
+use App\Http\Form\RegistrationFormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Security\Guard\GuardAuthenticatorHandler;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class RegistrationController extends AbstractController
 {
     /**
      * @Route("/register", name="register")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, LoginAuthenticator $authenticator): Response
+    public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, Authenticator $authenticator): Response
     {
         if ($this->getUser()) {
             return $this->redirectToRoute('home');

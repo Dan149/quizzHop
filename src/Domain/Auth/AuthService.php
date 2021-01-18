@@ -1,5 +1,5 @@
 <?php
-namespace App\Security;
+namespace App\Domain\Auth;
 
 use App\Domain\Auth\User;
 use Symfony\Component\HttpFoundation\Request;

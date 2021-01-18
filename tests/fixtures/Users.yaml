@@ -1,4 +1,4 @@
-App\Entity\User:
+App\Domain\Auth\User:
   user_user:
     username: 'user'
     # UserPassword1234 hash

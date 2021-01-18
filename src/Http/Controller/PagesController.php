@@ -2,7 +2,7 @@
 
 namespace App\Http\Controller;
 
-use App\Repository\QuizzRepository;
+use App\Domain\Quizz\Repository\QuizzRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

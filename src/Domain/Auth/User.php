@@ -3,6 +3,7 @@
 namespace App\Domain\Auth;
 
 use App\Domain\Auth\UserRepository;
+use App\Domain\Quizz\Entity\Quizz;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;

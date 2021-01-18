@@ -4,6 +4,7 @@ namespace App\Domain\Quizz\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Domain\Quizz\Repository\QuizzRepository;
+use App\Domain\Auth\User;
 use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\HttpFoundation\File\File;

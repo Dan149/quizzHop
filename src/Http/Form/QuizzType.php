@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Form;
+namespace App\Http\Form;
 
-use App\Entity\Quizz;
+use App\Domain\Quizz\Entity\Quizz;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

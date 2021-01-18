@@ -3,7 +3,7 @@
 namespace App\Http\Controller;
 
 use App\Entity\Quizz;
-use App\Form\QuizzType;
+use App\Http\Form\QuizzType;
 use App\Repository\QuizzRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

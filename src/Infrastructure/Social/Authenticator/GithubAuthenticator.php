@@ -1,11 +1,11 @@
 <?php
-namespace App\Security;
+namespace App\Infrastructure\Social\Authenticator;
 
-use App\Entity\User;
-use App\Repository\UserRepository;
-use App\Security\AbstractSocialAuthenticator;
+use App\Domain\Auth\User;
+use App\Domain\Auth\UserRepository;
 use League\OAuth2\Client\Provider\GithubResourceOwner;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
+use App\Infrastructure\Social\Authenticator\AbstractSocialAuthenticator;
 
 class GithubAuthenticator extends AbstractSocialAuthenticator
 {
