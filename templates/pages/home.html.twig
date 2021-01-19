@@ -179,13 +179,17 @@
 			</div>
 			<div class="flex flex-wrap">
                 {% if quizzes %}
-                    {% for quizz in quizzes %}
-                        {% include "partials/_card.html.twig" with {'quizz': quizz} %}
-                    {% endfor %}
+                <div class="mt-6 sm:overflow-x-auto sm:overflow-y-hidden">
+                    <div class="px-4 sm:inline-flex sm:pt-2 sm:pb-8 xl:px-8">
+                        {% for quizz in quizzes %}
+                            {% include "partials/_card.html.twig" with {'quizz': quizz} %}
+                        {% endfor %}
+                    </div>
+                </div>
                 {% else %}
                     <div class="flex flex-col items-center justify-center w-full">
                         <p>No quizz for the moment, don't hesitate to be the first!</p>
-					    <a href="{{ path('quizz_index') }}" class="font-bold mt-8 text-center bg-indigo-600 text-white active:bg-indigo-700 uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1">Create my quizz</a>
+					    <a href="{{ path('quizz_new') }}" class="font-bold mt-8 text-center bg-indigo-600 text-white active:bg-indigo-700 uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1">Create my quizz</a>
                     </div>
                 {% endif %}
 			</div>

@@ -61,6 +61,9 @@ Encore
     // enables PostCSS support
     .enablePostCssLoader()
 
+    // enables VueJS support
+    .enableVueLoader(() => {}, { runtimeCompilerBuild: false })
+
     // Images
     .copyFiles({
         from: './assets/img',
