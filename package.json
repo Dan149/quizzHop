@@ -1,8 +1,18 @@
 {
+    "browserslist": [
+        "> 0.5%",
+        "last 2 versions",
+        "Firefox ESR",
+        "not dead"
+    ],
     "devDependencies": {
         "@symfony/stimulus-bridge": "^1.1.0",
         "@symfony/webpack-encore": "^0.32.0",
         "core-js": "^3.0.0",
+        "eslint": "^7.18.0",
+        "eslint-config-airbnb-base": "^14.2.1",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-vue": "^7.4.1",
         "node-sass": "^4.14.1",
         "postcss-loader": "^3.0.0",
         "regenerator-runtime": "^0.13.2",
@@ -22,5 +32,8 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "vue-form-wizard": "^0.8.4"
     }
 }
