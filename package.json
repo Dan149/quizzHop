@@ -23,6 +23,7 @@
         "vue-loader": "^15",
         "vue-template-compiler": "^2.6.12",
         "webpack-notifier": "^1.6.0",
+        "@symfony/ux-lazy-image": "file:vendor/symfony/ux-lazy-image/Resources/assets",
         "@symfony/ux-swup": "file:vendor/symfony/ux-swup/Resources/assets"
     },
     "license": "UNLICENSED",

@@ -131,6 +131,12 @@
     "guzzlehttp/psr7": {
         "version": "1.7.0"
     },
+    "imagine/imagine": {
+        "version": "1.2.4"
+    },
+    "intervention/image": {
+        "version": "2.5.1"
+    },
     "jms/metadata": {
         "version": "2.4.0"
     },
@@ -145,6 +151,9 @@
         "files": [
             "config/packages/knpu_oauth2_client.yaml"
         ]
+    },
+    "kornrunner/blurhash": {
+        "version": "v1.2.1"
     },
     "laminas/laminas-code": {
         "version": "3.5.0"
@@ -166,6 +175,19 @@
     },
     "league/oauth2-google": {
         "version": "3.0.3"
+    },
+    "liip/imagine-bundle": {
+        "version": "1.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.8",
+            "ref": "5a5bdc2d0e2533ed6935d5ae562f2b318a8fc1ee"
+        },
+        "files": [
+            "config/packages/liip_imagine.yaml",
+            "config/routes/liip_imagine.yaml"
+        ]
     },
     "liip/test-fixtures-bundle": {
         "version": "1.11.0"
@@ -565,6 +587,9 @@
     "symfony/string": {
         "version": "v5.1.9"
     },
+    "symfony/templating": {
+        "version": "v5.2.1"
+    },
     "symfony/test-pack": {
         "version": "v1.0.7"
     },
@@ -603,6 +628,9 @@
     },
     "symfony/twig-pack": {
         "version": "v1.0.1"
+    },
+    "symfony/ux-lazy-image": {
+        "version": "v1.1.0"
     },
     "symfony/ux-swup": {
         "version": "v1.0.0"
