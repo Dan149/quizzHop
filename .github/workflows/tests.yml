@@ -53,7 +53,7 @@ jobs:
         with:
           enable_warnings: true
           installed_paths: '${{ github.workspace }}/vendor/squizlabs/php_codesniffer'
-          phpcs_bin_path: './vendor/bin/phpcs'
+          phpcs_bin_path: './vendor/bin/phpcs src'
 
       # https://github.com/phpmd/phpmd
       - name: Analyses PHP Code (PHP Mess Detector)
@@ -61,7 +61,7 @@ jobs:
 
       # https://github.com/phpstan/phpstan
       - name: Analyse PHP Code (PHPStan)
-        run: vendor/bin/phpstan analyse
+        run: vendor/bin/phpstan analyse src
 
       # Symfony
       - name: Check the Symfony console
