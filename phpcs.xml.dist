@@ -15,5 +15,7 @@
     <file>public/</file>
     <file>src/</file>
     <file>tests/</file>
+    <exclude-pattern>*/src/Infrastructure/Migrations/*</exclude-pattern>
+
 
 </ruleset>
