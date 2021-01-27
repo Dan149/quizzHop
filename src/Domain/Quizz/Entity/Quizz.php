@@ -73,7 +73,14 @@ class Quizz
     private $note;
 
     /**
-     * @Vich\UploadableField(mapping="quizz_image", fileNameProperty="image.name", size="image.size", mimeType="image.mimeType", originalName="image.originalName", dimensions="image.dimensions")
+     * @Vich\UploadableField(
+     *      mapping="quizz_image",
+     *      fileNameProperty="image.name",
+     *      size="image.size",
+     *      mimeType="image.mimeType",
+     *      originalName="image.originalName",
+     *      dimensions="image.dimensions"
+     * )
      *
      * @var File|null
      */

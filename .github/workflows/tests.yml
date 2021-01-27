@@ -53,7 +53,7 @@ jobs:
         with:
           enable_warnings: true
           installed_paths: '${{ github.workspace }}/vendor/squizlabs/php_codesniffer'
-          phpcs_bin_path: './vendor/bin/phpcs src'
+          phpcs_bin_path: './vendor/bin/phpcs src --ignore="Migrations/"'
 
       # https://github.com/phpmd/phpmd
       - name: Analyses PHP Code (PHP Mess Detector)

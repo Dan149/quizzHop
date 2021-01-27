@@ -21,7 +21,9 @@
 
     <rule ref="rulesets/naming.xml/ShortVariable">
         <properties>
-            <property name="exceptions" value="id,em" />
+            <property name="exceptions" value="id,em,io" />
         </properties>
     </rule>
+
+    <exclude-pattern>*Migrations/*.php</exclude-pattern>
 </ruleset>

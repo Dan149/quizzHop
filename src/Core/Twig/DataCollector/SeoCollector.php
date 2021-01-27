@@ -53,7 +53,9 @@ final class SeoCollector extends DataCollector
             return self::CLASS_ERROR;
         }
 
-        return $size >= SeoExtension::MIN_TITLE_LENGTH && $size <= SeoExtension::MAX_TITLE_LENGTH ? self::CLASS_OK : self::CLASS_WARNING;
+        return $size >= SeoExtension::MIN_TITLE_LENGTH
+            && $size <= SeoExtension::MAX_TITLE_LENGTH
+            ? self::CLASS_OK : self::CLASS_WARNING;
     }
 
     private function getDescriptionClass(int $size): string
@@ -62,7 +64,9 @@ final class SeoCollector extends DataCollector
             return self::CLASS_ERROR;
         }
 
-        return $size >= SeoExtension::MIN_DESCRITION_LENGTH && $size <= SeoExtension::MAX_DESCRITION_LENGTH ? self::CLASS_OK : self::CLASS_WARNING;
+        return $size >= SeoExtension::MIN_DESCRITION_LENGTH
+            && $size <= SeoExtension::MAX_DESCRITION_LENGTH
+            ? self::CLASS_OK : self::CLASS_WARNING;
     }
 
     /**

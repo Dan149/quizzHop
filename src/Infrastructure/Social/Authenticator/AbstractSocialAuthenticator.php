@@ -102,8 +102,10 @@ abstract class AbstractSocialAuthenticator extends SocialAuthenticator
         return $this->getClient()->fetchUserFromToken($credentials);
     }
 
-    protected function getUserFromResourceOwner(ResourceOwnerInterface $resourceOwner, UserRepository $userRepository): ?User
-    {
+    protected function getUserFromResourceOwner(
+        ResourceOwnerInterface $resourceOwner,
+        UserRepository $userRepository
+    ): ?User {
         return null;
     }
 
