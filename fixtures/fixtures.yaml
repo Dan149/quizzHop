@@ -1,0 +1,18 @@
+include:
+  - templates.yaml
+
+App\Domain\Auth\User:
+  user{1..5} (extends user):
+  admin (extends user):
+    username: rherault
+    roles: ['ROLE_ADMIN']
+
+App\Domain\Quizz\Entity\Category:
+  category{1..30} (extends category):
+
+App\Domain\Quizz\Entity\Quizz:
+  quizz{1..50} (extends quizz):
+    category: '@category*'
+
+App\Domain\Quizz\Entity\Question:
+  question{1..200} (extends quizz):

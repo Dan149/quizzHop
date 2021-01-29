@@ -1,0 +1,73 @@
+{% use '@CraueFormFlow/FormFlow/stepList_blocks.html.twig' %}
+
+{%- if flow.getStepLabels() is not empty -%}
+    <div class="w-full py-6">
+        <div class="flex">
+            {% set numberStep = flow.getStepLabels()|length %}
+            {% for stepLabel in flow.getStepLabels() %}
+
+                {% set icon_border = '' %}
+                {%- if loop.index == flow.getCurrentStepNumber() -%}
+                    {% set width = 100 %}
+                    {% set icon_bg = 'bg-indigo-600' %}
+                    {% set icon_color = 'text-white' %}
+                {%- elseif flow.isStepSkipped(loop.index) -%}
+                    {% set width = 100 %}
+                    {% set icon_bg = 'bg-indigo-600' %}
+                    {% set icon_color = 'text-white' %}
+                {%- elseif flow.isStepDone(loop.index) -%}
+                    {% set width = 100 %}
+                    {% set icon_bg = 'bg-indigo-600' %}
+                    {% set icon_color = 'text-white' %}
+                {% else %}
+                    {% set width = 0 %}
+                    {% set icon_bg = '' %}
+                    {% set icon_color = 'text-gray-600' %}
+                    {% set icon_border = 'border-2 border-gray-200' %}
+                {%- endif -%}
+            <div class="w-1/{{ numberStep }}">
+                <div class="relative mb-2">
+                    {% if not loop.first %}
+                        <div class="absolute flex align-center items-center align-middle content-center" style="width: calc(100% - 2.5rem - 1rem); top: 50%; transform: translate(-50%, -50%)">
+                            <div class="w-full bg-gray-200 rounded items-center align-middle align-center flex-1">
+                                <div class="w-0 bg-indigo-300 py-1 rounded" style="width: {{ width }}%;"></div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    <div class="w-10 h-10 mx-auto {{ icon_bg }} rounded-full {{ icon_border }} text-lg text-white flex items-center">
+                        <span class="text-center {{ icon_color }} w-full">
+                        {% if loop.first %}
+                            <svg class="w-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                            </svg>
+                        {% elseif loop.last %}
+                            <svg class="w-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                            </svg>
+                        {% else %}
+                            <svg class="w-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+                            </svg>
+                        {% endif %}
+                        </span>
+                    </div>
+                </div>
+                <div class="text-xs text-center md:text-base">{{ block('craue_flow_stepLabel') }}</div>
+            </div>
+
+{#
+                <li{{ block('craue_flow_stepList_class') }}>
+                    {%- if craue_isStepLinkable(flow, loop.index) -%}
+                        <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all
+                                | merge(app.request.attributes.get('_route_params'))
+                                | craue_addDynamicStepNavigationParameters(flow, loop.index)) }}">
+                            {{- block('craue_flow_stepLabel') -}}
+                        </a>
+                    {%- else -%}
+                        {{ block('craue_flow_stepLabel') }}
+                    {%- endif -%}
+                </li> #}
+            {% endfor %}
+        </div>
+    </div>
+{%- endif -%}

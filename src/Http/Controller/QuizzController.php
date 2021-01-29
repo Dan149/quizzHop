@@ -3,6 +3,7 @@
 namespace App\Http\Controller;
 
 use App\Domain\Quizz\Entity\Quizz;
+use App\Domain\Quizz\Flow\CreateQuizzFlow;
 use App\Http\Form\QuizzType;
 use App\Domain\Quizz\Repository\QuizzRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -28,23 +29,39 @@ class QuizzController extends AbstractController
     /**
      * @Route("/new", name="quizz_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, CreateQuizzFlow $flow): Response
     {
         $quizz = new Quizz();
-        $form = $this->createForm(QuizzType::class, $quizz);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($quizz);
-            $entityManager->flush();
+        $flow->bind($quizz);
+        $form = $flow->createForm();
 
-            return $this->redirectToRoute('quizz_index');
+        if ($flow->isValid($form)) {
+            $flow->saveCurrentStepData($form);
+
+            if ($flow->nextStep()) {
+                $form = $flow->createForm();
+            } else {
+                $user = $this->getUser();
+
+                if ($user) {
+                    $quizz->setCreator($user);
+                }
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($quizz);
+                $entityManager->flush();
+
+                $flow->reset();
+
+                return $this->redirectToRoute('quizz_index');
+            }
         }
 
         return $this->render('quizz/new.html.twig', [
             'quizz' => $quizz,
             'form' => $form->createView(),
+            'flow' => $flow
         ]);
     }
 
@@ -61,20 +78,27 @@ class QuizzController extends AbstractController
     /**
      * @Route("/{slug}/edit", name="quizz_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Quizz $quizz): Response
+    public function edit(Request $request, Quizz $quizz, CreateQuizzFlow $flow): Response
     {
-        $form = $this->createForm(QuizzType::class, $quizz);
-        $form->handleRequest($request);
+        $flow->bind($quizz);
+        $form = $flow->createForm();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+        if ($flow->isValid($form)) {
+            $flow->saveCurrentStepData($form);
 
-            return $this->redirectToRoute('quizz_index');
+            if ($flow->nextStep()) {
+                $form = $flow->createForm();
+            } else {
+                $this->getDoctrine()->getManager()->flush();
+
+                return $this->redirectToRoute('quizz_index');
+            }
         }
 
         return $this->render('quizz/edit.html.twig', [
             'quizz' => $quizz,
             'form' => $form->createView(),
+            'flow' => $flow
         ]);
     }
 

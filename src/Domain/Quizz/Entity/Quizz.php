@@ -7,6 +7,7 @@ use App\Domain\Quizz\Repository\QuizzRepository;
 use App\Domain\Auth\User;
 use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiResource;
+use DateTime;
 use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;

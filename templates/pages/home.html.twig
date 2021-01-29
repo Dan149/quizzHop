@@ -86,7 +86,7 @@
 				</div>
 				<div class="w-full md:w-4/12 px-4 mr-auto ml-auto mt-8 md:mt-0">
 					<div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-indigo-600">
-						<img alt="..." src="{{ data_uri_thumbnail('build/homepage/img-homepage-fun.webp', 50, 35) }}" width="470" height="314" data-controller="@symfony/ux-lazy-image/lazy-image" data-hd-src="{{ asset('build/homepage/img-homepage-fun.webp') }}" class="w-full align-middle rounded-t-lg"/>
+                        <img alt="..." src="{{ data_uri_thumbnail('build/homepage/img-homepage-fun.webp', 50, 35) }}" width="470" height="314" data-controller="@symfony/ux-lazy-image/lazy-image" data-hd-src="{{ asset('build/homepage/img-homepage-fun.webp') }}" class="w-full align-middle rounded-t-lg"/>
 						<blockquote class="relative p-8 mb-4">
 							<svg preserveaspectratio="none" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 583 95" class="absolute left-0 w-full block" style="height: 95px; top: -94px;">
 								<polygon points="-30,95 583,95 583,65" class="text-indigo-600 fill-current"></polygon>
@@ -109,7 +109,9 @@
 		<div class="container mx-auto px-4">
 			<div class="items-center flex flex-wrap">
 				<div class="w-full md:w-4/12 ml-auto mr-auto px-4">
-					<img alt="..." class="max-w-full rounded-lg shadow-lg" src="{{ data_uri_thumbnail('build/homepage/img-homepage-advantages.webp', 50, 75) }}" width="470" height="704" data-controller="@symfony/ux-lazy-image/lazy-image" data-hd-src="{{ asset('build/homepage/img-homepage-advantages.webp') }}"/>
+                    {% if asset('build/homepage/img-homepage-advantages.webp') %}
+                        <img alt="..." class="max-w-full rounded-lg shadow-lg" src="{{ data_uri_thumbnail('build/homepage/img-homepage-advantages.webp', 50, 75) }}" width="470" height="704" data-controller="@symfony/ux-lazy-image/lazy-image" data-hd-src="{{ asset('build/homepage/img-homepage-advantages.webp') }}"/>
+                    {% endif %}
 				</div>
 				<div class="w-full md:w-5/12 ml-auto mr-auto px-4 mt-8 md:mt-0">
 					<div class="md:pr-12">

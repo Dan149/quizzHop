@@ -12,15 +12,31 @@ class QuizzType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('name')
-            ->add('description')
-            ->add('players')
-            ->add('questions')
-            ->add('isPrivate')
-            ->add('category')
-            ->add('imageFile', VichImageType::class)
-        ;
+        switch ($options['flow_step']) {
+            case 1:
+                $builder
+                    ->add('name')
+                    ->add('description')
+                    ->add('imageFile', VichImageType::class, [
+                        'required' => true
+                    ])
+                    ->add('isPrivate')
+                    ->add('category')
+                ;
+                break;
+
+            case 2:
+                $builder
+                    ->add('players')
+                    ->add('questions')
+                ;
+                break;
+        }
+    }
+
+    public function getBlockPrefix()
+    {
+        return 'createQuizz';
     }
 
     public function configureOptions(OptionsResolver $resolver)
