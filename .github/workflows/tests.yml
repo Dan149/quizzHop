@@ -45,7 +45,7 @@ jobs:
 
       # https://github.com/sensiolabs/security-checker
       - name: Security check installed dependencies
-        run:  vendor/bin/security-checker security:check
+        uses: symfonycorp/security-checker-action@v2
 
       # https://github.com/chekalsky/phpcs-action (community)
       - name: Check PSR12 code style (PHP_CodeSniffer)
