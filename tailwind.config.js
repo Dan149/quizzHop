@@ -1,10 +1,11 @@
 module.exports = {
-  purge: [
-    './templates/**/*.html.twig',  
+  purge: {
+    content: ['./templates/**/*.html.twig'],
+
     options: {
       safelist: ['w-1/3'],
     }
-  ],
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
