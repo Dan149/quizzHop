@@ -2,7 +2,8 @@
     <div>
         <div class="relative pb-5/6">
             {% if quizz.image.name %}
-                <img src="{{ data_uri_thumbnail(vich_uploader_asset(quizz, 'imageFile')[1:], 50, 35) }}" data-controller="@symfony/ux-lazy-image/lazy-image" data-hd-src="{{ vich_uploader_asset(quizz, 'imageFile') | imagine_filter('thumbnail_quizz') }}" class="absolute inset-0 h-full w-full rounded-lg shadow-md object-cover" alt="{{ quizz.name }}" width="320" height="270">
+                {# <img src="{{ data_uri_thumbnail(vich_uploader_asset(quizz, 'imageFile')[1:], 50, 35) }}" data-controller="@symfony/ux-lazy-image/lazy-image" data-hd-src="{{ vich_uploader_asset(quizz, 'imageFile') | imagine_filter('thumbnail_quizz') }}" class="absolute inset-0 h-full w-full rounded-lg shadow-md object-cover" alt="{{ quizz.name }}" width="320" height="270"> #}
+                <img src="{{ vich_uploader_asset(quizz, 'imageFile') | imagine_filter('thumbnail_quizz') }}" class="absolute inset-0 h-full w-full rounded-lg shadow-md object-cover" alt="{{ quizz.name }}" width="320" height="270">
             {% endif %}
         </div>
         <div class="relative px-4 -mt-16">
