@@ -22,7 +22,7 @@ class QuizzController extends AbstractController
     public function index(QuizzRepository $quizzRepository): Response
     {
         return $this->render('quizz/index.html.twig', [
-            'quizzes' => $quizzRepository->findAll(),
+            'quizzes' => $quizzRepository->findBy([], ['id' => 'DESC']),
         ]);
     }
 
