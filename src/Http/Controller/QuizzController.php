@@ -22,7 +22,7 @@ class QuizzController extends AbstractController
     public function index(QuizzRepository $quizzRepository): Response
     {
         return $this->render('quizz/index.html.twig', [
-            'quizzes' => $quizzRepository->findBy([], ['id' => 'DESC']),
+            'quizzes' => $quizzRepository->findBy(['isPrivate' => false], ['id' => 'DESC']),
         ]);
     }
 
@@ -49,6 +49,12 @@ class QuizzController extends AbstractController
                 }
 
                 $entityManager = $this->getDoctrine()->getManager();
+
+                foreach ($quizz->getQuestions() as $question) {
+                    $question->setQuizz($quizz);
+                    $entityManager->persist($question);
+                }
+
                 $entityManager->persist($quizz);
                 $entityManager->flush();
 

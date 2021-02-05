@@ -9,3 +9,8 @@
         {{ include('quizz/_form.html.twig') }}
     </section>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('collections') }}
+{% endblock %}
