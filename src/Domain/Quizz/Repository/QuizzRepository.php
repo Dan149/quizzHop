@@ -22,6 +22,7 @@ class QuizzRepository extends ServiceEntityRepository
     public function findLatest()
     {
         return $this->createQueryBuilder('q')
+            ->where('q.isPrivate = false')
             ->setMaxResults(4)
             ->orderBy('q.id', 'DESC')
             ->getQuery()

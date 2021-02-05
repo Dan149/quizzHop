@@ -1,0 +1,21 @@
+App\Domain\Auth\User:
+  user (template):
+    username: John<current()>
+    password: <password('0000')>
+
+App\Domain\Quizz\Entity\Quizz:
+  quizz (template):
+    name: <sentence(2, true)>
+    description: <sentence(3, true)>
+    players: <numberBetween(1, 10)>
+    isPrivate: false
+    note: <numberBetween(1, 5)>
+
+App\Domain\Quizz\Entity\Question:
+  question (template):
+    name: <sentence(2)>
+    answer: <randomElement([true, false])>
+
+App\Domain\Quizz\Entity\Category:
+  category (template):
+    name: <words(2, true)>

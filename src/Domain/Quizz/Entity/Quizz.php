@@ -7,6 +7,7 @@ use App\Domain\Quizz\Repository\QuizzRepository;
 use App\Domain\Auth\User;
 use Doctrine\Common\Collections\Collection;
 use ApiPlatform\Core\Annotation\ApiResource;
+use DateTime;
 use Symfony\Component\HttpFoundation\File\File;
 use Doctrine\Common\Collections\ArrayCollection;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -73,7 +74,14 @@ class Quizz
     private $note;
 
     /**
-     * @Vich\UploadableField(mapping="quizz_image", fileNameProperty="image.name", size="image.size", mimeType="image.mimeType", originalName="image.originalName", dimensions="image.dimensions")
+     * @Vich\UploadableField(
+     *      mapping="quizz_image",
+     *      fileNameProperty="image.name",
+     *      size="image.size",
+     *      mimeType="image.mimeType",
+     *      originalName="image.originalName",
+     *      dimensions="image.dimensions"
+     * )
      *
      * @var File|null
      */
@@ -87,7 +95,7 @@ class Quizz
     private $image;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      *
      * @var \DateTimeInterface|null
      */

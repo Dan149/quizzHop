@@ -1,9 +1,24 @@
 {
     "controllers": {
+        "@symfony/ux-dropzone": {
+            "dropzone": {
+                "enabled": true,
+                "fetch": "lazy",
+                "autoimport": {
+                    "@symfony/ux-dropzone/src/style.css": true
+                }
+            }
+        },
+        "@symfony/ux-lazy-image": {
+            "lazy-image": {
+                "enabled": true,
+                "fetch": "lazy"
+            }
+        },
         "@symfony/ux-swup": {
             "swup": {
                 "enabled": true,
-                "webpackMode": "eager"
+                "fetch": "lazy"
             }
         }
     },

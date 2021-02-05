@@ -1,0 +1,21 @@
+include:
+  - templates.yaml
+
+App\Domain\Auth\User:
+  user{1..5} (extends user):
+    quizzes: ['@quizz<current()>']
+  admin (extends user):
+    username: rherault
+    roles: ['ROLE_ADMIN']
+
+App\Domain\Quizz\Entity\Quizz:
+  quizz{1..50} (extends quizz):
+    questions: '5x @question1'
+    category: '@category<numberBetween(1, 30)>'
+
+App\Domain\Quizz\Entity\Category:
+  category{1..30} (extends category):
+
+App\Domain\Quizz\Entity\Question:
+  question{1..200} (extends question):
+    quizz: '@quizz<numberBetween(1, 50)>'

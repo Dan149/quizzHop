@@ -58,8 +58,11 @@ class AddUserCommand extends Command
     private $passwordEncoder;
     private $users;
 
-    public function __construct(EntityManagerInterface $em, UserPasswordEncoderInterface $encoder, UserRepository $users)
-    {
+    public function __construct(
+        EntityManagerInterface $em,
+        UserPasswordEncoderInterface $encoder,
+        UserRepository $users
+    ) {
         parent::__construct();
 
         $this->entityManager = $em;
@@ -165,11 +168,20 @@ class AddUserCommand extends Command
         $this->entityManager->persist($user);
         $this->entityManager->flush();
 
-        $this->io->success(sprintf('%s was successfully created: %s', $isAdmin ? 'Administrator user' : 'User', $user->getUsername()));
+        $this->io->success(sprintf(
+            '%s was successfully created: %s',
+            $isAdmin ? 'Administrator user' : 'User',
+            $user->getUsername()
+        ));
 
         $event = $stopwatch->stop('add-user-command');
         if ($output->isVerbose()) {
-            $this->io->comment(sprintf('New user database id: %d / Elapsed time: %.2f ms / Consumed memory: %.2f MB', $user->getId(), $event->getDuration(), $event->getMemory() / (1024 ** 2)));
+            $this->io->comment(sprintf(
+                'New user database id: %d / Elapsed time: %.2f ms / Consumed memory: %.2f MB',
+                $user->getId(),
+                $event->getDuration(),
+                $event->getMemory() / (1024 ** 2)
+            ));
         }
 
         return 0;
@@ -181,7 +193,10 @@ class AddUserCommand extends Command
         $existingUsername = $this->users->findOneBy(['username' => $username]);
 
         if (null !== $existingUsername) {
-            throw new RuntimeException(sprintf('There is already a user registered with the "%s" username.', $username));
+            throw new RuntimeException(sprintf(
+                'There is already a user registered with the "%s" username.',
+                $username
+            ));
         }
     }
 

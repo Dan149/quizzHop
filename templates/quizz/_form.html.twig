@@ -1,4 +1,6 @@
+{% include 'form/partials/step_list.html.twig' %}
+
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {% include 'form/partials/step_buttons.html.twig' %}
 {{ form_end(form) }}
