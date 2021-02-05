@@ -4,8 +4,10 @@ namespace App\Http\Form;
 
 use App\Domain\Quizz\Entity\Quizz;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\UX\Dropzone\Form\DropzoneType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class QuizzType extends AbstractType
@@ -17,9 +19,7 @@ class QuizzType extends AbstractType
                 $builder
                     ->add('name')
                     ->add('description')
-                    ->add('imageFile', VichImageType::class, [
-                        'required' => true
-                    ])
+                    ->add('imageFile', DropzoneType::class)
                     ->add('isPrivate')
                     ->add('category')
                 ;
@@ -28,7 +28,11 @@ class QuizzType extends AbstractType
             case 2:
                 $builder
                     ->add('players')
-                    ->add('questions')
+                    ->add('questions', CollectionType::class, [
+                        'entry_type' => QuestionType::class,
+                        'entry_options' => ['label' => false],
+                        'allow_add' => true
+                    ])
                 ;
                 break;
         }

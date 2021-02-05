@@ -25,4 +25,5 @@ return [
     Liip\ImagineBundle\LiipImagineBundle::class => ['all' => true],
     Craue\FormFlowBundle\CraueFormFlowBundle::class => ['all' => true],
     Hautelook\AliceBundle\HautelookAliceBundle::class => ['dev' => true, 'test' => true],
+    Symfony\UX\Dropzone\DropzoneBundle::class => ['all' => true],
 ];
