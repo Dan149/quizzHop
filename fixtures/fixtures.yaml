@@ -4,9 +4,6 @@ include:
 App\Domain\Auth\User:
   user{1..5} (extends user):
     quizzes: ['@quizz<current()>']
-  admin (extends user):
-    username: rherault
-    roles: ['ROLE_ADMIN']
 
 App\Domain\Quizz\Entity\Quizz:
   quizz{1..50} (extends quizz):
