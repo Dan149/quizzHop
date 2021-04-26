@@ -34,7 +34,7 @@ db-validate: vendor ## Checks doctrine's mapping configurations are valid
 	@$(SYMFONY) doctrine:schema:validate --skip-sync -vvv --no-interaction
 
 fixtures: vendor ## Load fixtures - requires database with tables
-	@$(SYMFONY) doctrine:fixtures:load --no-interaction
+	@$(SYMFONY) hautelook:fixtures:load --no-interaction
 
 
 ##
